@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Monitor Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Duck Creek URL Monitor Dashboard</h1>
+<div id="urlForm">
+  <label for="urlInput"></label>Enter URL: <input type="text" id="urlInput" placeholder="Enter URL to monitor" />
+    <label for="checkMethod">Check Method: </label><select id="checkMethod">
+    <option value="GET">GET</option>
+    <option value="PING">PING</option>
+  </select>
+  <button id="addUrl">Add URL</button>
+</div>
+
+  <div id="urlsList">
+    <!-- Monitored URLs will be listed here -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
