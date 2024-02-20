@@ -1,10 +1,16 @@
 {
   "name": "DC_Dashboard",
+  "description": "A dashboard application",
+  "license" : "SEE LICENSE IN <filename>",
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
     "node-cron": "^3.0.3",
     "node-fetch": "^3.3.2"
-  }
+  },
+   "repository": {
+     "type": "git",
+      "url": "https://github.com/jayhar/DC_Dashboard.git"
+   }
 }

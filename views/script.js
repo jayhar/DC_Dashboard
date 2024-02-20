@@ -22,19 +22,30 @@ async function fetchUrls() {
   listElement.innerHTML = ''; // Clear the list before repopulating
 
   urls.forEach(urlObj => {
-    const urlElement = document.createElement('div');
-    urlElement.textContent = `URL: ${urlObj.url} - Method: ${urlObj.checkMethod} - Status: ${urlObj.status} - Last Checked: ${new Date(urlObj.lastChecked).toLocaleString()} `;
+    // Create a container for each URL and its delete button
+    const urlContainer = document.createElement('div');
 
-    // Create a delete button
+    // Create the delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = 'Delete';
     deleteBtn.onclick = function() {
       deleteUrl(urlObj.uniqueId); // Call the delete function with the uniqueId
     };
-    urlElement.appendChild(deleteBtn);
-    listElement.appendChild(urlElement);
+
+    // Add the delete button to the container
+    urlContainer.appendChild(deleteBtn);
+
+    // Create a text node for the URL details
+    const urlDetails = document.createTextNode(` URL: ${urlObj.url} - Method: ${urlObj.checkMethod} - Status: ${urlObj.status} - Last Checked: ${new Date(urlObj.lastChecked).toLocaleString()} `);
+
+    // Add the URL details to the container after the delete button
+    urlContainer.appendChild(urlDetails);
+
+    // Add the container to the list
+    listElement.appendChild(urlContainer);
   });
 }
+
 async function deleteUrl(uniqueId) {
   const response = await fetch('/api/urls/delete', {
     method: 'POST',
